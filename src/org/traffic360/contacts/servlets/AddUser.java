@@ -20,7 +20,7 @@ public class AddUser extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher despachador = null;
 		
-		User user = new User(req.getParameter("txtUsername"), req.getParameter("txtPassword"));
+		User user = new User(req.getParameter("txtUsername"), req.getParameter("txtPassword"),0);
 		UserController.getInstance().createUser(user);		
 		
 		despachador = req.getRequestDispatcher("redirect.jsp");

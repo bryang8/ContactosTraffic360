@@ -11,6 +11,7 @@ import org.traffic360.contacts.bean.Department;
 import org.traffic360.contacts.bean.Email;
 import org.traffic360.contacts.bean.Phone;
 import org.traffic360.contacts.bean.Skype;
+import org.traffic360.contacts.bean.User;
 import org.traffic360.contacts.db.Conexion;
 import org.traffic360.contacts.helpers.Encrypt;
 
@@ -41,6 +42,33 @@ public class ContactController {
 	
 	public List<Contact> contactList(){
 		ResultSet rs=Conexion.getInstancia().obtenerConsulta("SELECT * from contact WHERE status = '1' ;");
+		List<Contact> list=new ArrayList();
+		if(rs != null){
+			try {
+				while(rs.next()){
+					list.add(new Contact(
+							rs.getInt("idContact"),
+							rs.getInt("idDepartment"),
+							rs.getString("rol"),
+							rs.getString("name"),
+							rs.getString("lastName"),
+							rs.getString("company"),
+							rs.getInt("extension"),
+							rs.getInt("zoiper"),
+							rs.getString("enrrollingDate"),
+							rs.getInt("status")
+							));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+
+	public List<Contact> contactsDownList(){
+		ResultSet rs=Conexion.getInstancia().obtenerConsulta("SELECT * from contact WHERE status = '0' ;");
 		List<Contact> list=new ArrayList();
 		if(rs != null){
 			try {
@@ -200,13 +228,14 @@ public class ContactController {
 	   return 0;
 	}
 	
-	public boolean validateUser(String username, String password)throws SQLException{
+	public User validateUser(String username, String password)throws SQLException{
 		  password = Encrypt.Encriptar(password);
-		  ResultSet rs = Conexion.getInstancia().obtenerConsulta("SELECT idUser FROM user WHERE username = '" +  username
+		  ResultSet rs = Conexion.getInstancia().obtenerConsulta("SELECT idUser, rol FROM user WHERE username = '" +  username
 				   + "' and password = '" + password + "';");
-	       while(rs.next()){
-	           return true;
+	      User user = null; 
+		  while(rs.next()){
+	           user = new User(username, password, rs.getInt("rol"));
 	       }		    
-		   return false;
+		   return user;
 		}
 }

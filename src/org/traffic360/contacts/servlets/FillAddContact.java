@@ -1,6 +1,7 @@
 package org.traffic360.contacts.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.traffic360.contacts.bean.Department;
 import org.traffic360.contacts.bean.UserLogged;
 import org.traffic360.contacts.controller.ContactController;
 
@@ -18,14 +20,12 @@ public class FillAddContact extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		RequestDispatcher despachador=null;
-		if(UserLogged.getUserLogged()!=null){
-			req.setAttribute("departmentList",
-					ContactController.getInstance().departmentsList());
-			despachador=req.getRequestDispatcher("addContact.jsp");	
-		}
-		else{
-			despachador=req.getRequestDispatcher("/home");
-		}
+		
+		List<Department> list = ContactController.getInstance().departmentsList();
+		req.setAttribute("departmentList",list);		
+		
+		
+		despachador=req.getRequestDispatcher("addContact.jsp");
 		despachador.forward(req, resp);
 	}
 	

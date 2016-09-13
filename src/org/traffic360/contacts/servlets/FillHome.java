@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.traffic360.contacts.bean.User;
 import org.traffic360.contacts.bean.UserLogged;
 import org.traffic360.contacts.controller.ContactController;
 
@@ -18,6 +19,9 @@ public class FillHome extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		for(String ip :IPFilter.allowedips){
 			if(req.getRemoteAddr().equals(ip)){
+				req.getSession().invalidate();
+				req.getSession().removeAttribute("usuario");
+				User.setActual(null);
 				RequestDispatcher despachador=null;
 				req.setAttribute("departmentList",
 						ContactController.getInstance().departmentsList());
@@ -29,7 +33,6 @@ public class FillHome extends HttpServlet{
 						ContactController.getInstance().emailList());
 				req.setAttribute("skypeList",
 						ContactController.getInstance().skypeList());
-				UserLogged.setUserLogged(null);
 				despachador=req.getRequestDispatcher("default.jsp");
 				despachador.forward(req, resp);
 				break;

@@ -20,45 +20,32 @@ import org.traffic360.contacts.controller.ContactController;
 public class FillList extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		for(String ip :IPFilter.allowedips){
-			if(req.getRemoteAddr().equals(ip)){
-				RequestDispatcher despachador=null;
-				List<Department> list = ContactController.getInstance().departmentsList();
-				for(Department d: list){
-					d.setName(d.getName().toUpperCase());
-				}
-				req.setAttribute("departmentList",
-						list);
-				req.setAttribute("contactList",
-						ContactController.getInstance().contactList());
-				req.setAttribute("phoneList",
-						ContactController.getInstance().phoneList());
-				req.setAttribute("emailList",
-						ContactController.getInstance().emailList());
-				req.setAttribute("skypeList",
-						ContactController.getInstance().skypeList());
-				try {
-					if(UserLogged.getUserLogged()!=null){
-						despachador=req.getRequestDispatcher("inicio.jsp");
+		RequestDispatcher despachador=null;
+			for(String ip :IPFilter.allowedips){
+				if(req.getRemoteAddr().equals(ip)){
+					List<Department> list = ContactController.getInstance().departmentsList();
+					for(Department d: list){
+						d.setName(d.getName().toUpperCase());
 					}
-					else{
-						if(ContactController.getInstance().validateUser(req.getParameter("username"),
-								req.getParameter("password"))){
-							User user = new User(req.getParameter("username"),req.getParameter("password"));				
-							UserLogged.setUserLogged(user);
-							despachador=req.getRequestDispatcher("redirect.jsp");
-						}	
-						else {
-							despachador=req.getRequestDispatcher("default.jsp");
-						}	
-					}			
-				}catch(SQLException ex){}
-				
-				despachador.forward(req, resp);	
-				break;
+					req.setAttribute("edit-permission", 1);
+					req.setAttribute("departmentList",
+							list);
+					req.setAttribute("contactList",
+							ContactController.getInstance().contactList());
+					req.setAttribute("phoneList",
+							ContactController.getInstance().phoneList());
+					req.setAttribute("emailList",
+							ContactController.getInstance().emailList());
+					req.setAttribute("skypeList",
+							ContactController.getInstance().skypeList());	
+					despachador=req.getRequestDispatcher("inicio.jsp");
+					despachador.forward(req, resp);
+					break;
+				}
+			
 			}
-		}
 	}
+		
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
