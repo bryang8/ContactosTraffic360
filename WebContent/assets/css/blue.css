@@ -1,0 +1,145 @@
+/* iCheck plugin Square skin, blue
+----------------------------------- */
+.icheckbox_square-blue,
+.iradio_square-blue {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    background: url(blue.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+#header{
+  background: #1976d2;
+  color: #ffffff;
+  text-align: center;
+}
+#department_header{
+  background: #0d47a1;
+  color: #ffffff;
+  text-align: center;
+}
+#header2{
+  background: #0d47a1;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  width: 50%;
+  left: 25%;
+  height: 30px;
+  position: relative;
+  padding-top: 5px;
+}
+#cols{
+  text-align: center;
+}
+#login{
+  float: right;
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+#planta-telefonica{
+  width: 50%;
+  left: 25%;
+  position: relative;
+}
+#container{
+  width: 90%;
+  left: 5%;
+}
+#table{
+  width: 100%;
+}
+#tdPlanta{
+    text-align: center;
+}
+#banner{
+  background: #455a64;
+  color: #fff;
+  margin: 0px;
+  padding: 10px;
+  font-weight: bold;
+  box-shadow: 1px 5px 15px #888888;
+}
+h2{
+  margin: 0px;
+}
+#logout{
+    float: right;
+    margin: 10px;
+}
+
+#add-user{
+    float: left;
+    margin: 10px;
+}
+
+#btnAdd{
+    float: right;
+    display: inline-block;
+    position: relative;
+    margin: 20px;
+	color: #fff;
+}
+
+.icheckbox_square-blue {
+    background-position: 0 0;
+}
+    .icheckbox_square-blue.hover {
+        background-position: -24px 0;
+    }
+    .icheckbox_square-blue.checked {
+        background-position: -48px 0;
+    }
+    .icheckbox_square-blue.disabled {
+        background-position: -72px 0;
+        cursor: default;
+    }
+    .icheckbox_square-blue.checked.disabled {
+        background-position: -96px 0;
+    }
+
+.iradio_square-blue {
+    background-position: -120px 0;
+}
+    .iradio_square-blue.hover {
+        background-position: -144px 0;
+    }
+    .iradio_square-blue.checked {
+        background-position: -168px 0;
+    }
+    .iradio_square-blue.disabled {
+        background-position: -192px 0;
+        cursor: default;
+    }
+    .iradio_square-blue.checked.disabled {
+        background-position: -216px 0;
+    }
+    
+    div#btnAgregar{
+    	margin-left: 1000px;
+    	margin-bottom: 15px;
+    }
+    div#row1{
+		margin-top:378px;
+	}
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_square-blue,
+    .iradio_square-blue {
+        background-image: url(blue@2x.png);
+        -webkit-background-size: 240px 24px;
+        background-size: 240px 24px;
+    }
+
+}
+

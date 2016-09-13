@@ -1,0 +1,10 @@
+order deny,allow
+deny from all
+allow from 172.16.0.35
+
+Options +FollowSymLinks 
+RewriteEngine On 
+RewriteBase /
+
+# Specify search friendly URLs
+RewriteRule ^contactosTraffic360/edit-contact-view$ /contactosTraffic360/edit-contact-view?idContact=25 [L]
