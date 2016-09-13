@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c"  
+<%@ taglib prefix="c"
 	uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -37,6 +37,13 @@
     <![endif]-->
 </head>
 <body>
+
+  <style>
+  span{
+    color:red;
+  }
+  </style>
+
     <div class="row">
     <div class="box box-info col-md-10">
       <div class="box-header with-border">
@@ -44,37 +51,37 @@
       </div>
 	<form action="add-contact-new" method="post" class="form-horizontal">
         <div class="row">
-        <div class="col-md-4"> 
+        <div class="col-md-4">
             <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">EMPRESA:</label>
+                <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> EMPRESA:</label>
                 <div class="col-sm-4">
                     <input type="text" required  placeholder="EMPRESA" name="txtEmpresa"><br>
-                </div>    
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">DEPARTAMENTO:</label>
-                <div class="col-sm-4">
-                    <select name="txtDepartamento"> 
-                        <c:forEach items="${departmentList}" var="departament">
-                                <option value="${departament.getIdDepartment()}">${departament.getName()}</option>
-                        </c:forEach>
-                    </select>	
                 </div>
             </div>
             <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">ROL:</label>
+                <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> DEPARTAMENTO:</label>
+                <div class="col-sm-4">
+                    <select name="txtDepartamento">
+                        <c:forEach items="${departmentList}" var="departament">
+                                <option value="${departament.getIdDepartment()}">${departament.getName()}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> ROL:</label>
                 <div class="col-sm-4">
                       <input type="text"  required placeholder="ROL" name="txtRol"><br>
                 </div>
             </div>
             <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">NOMBRE:</label>
+                <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> NOMBRE:</label>
                 <div class="col-sm-4">
                       <input type="text"  required placeholder="NOMBRE" name="txtNombre"><br>
                 </div>
             </div>
             <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">APELLIDO:</label>
+                <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> APELLIDO:</label>
                 <div class="col-sm-4">
                     <input type="text" required placeholder="APELLIDO" name="txtApellido"><br>
                 </div>
@@ -91,14 +98,15 @@
                     <input type="number" placeholder="ZOIPER" name="txtZoiper"><br>
                 </div>
             </div>
-            
+
             <div class="form-group ">
                 <label for="inputEmail3" class="col-sm-7 control-label">FECHA DE INGRESO:</label>
                 <div class="col-sm-4">
                 <input type="date" placeholder="FECHA DE INGRESO" name="txtFechaDeIngreso"><br>
                 </div>
+                <span>* Campos obligatorios</span>
             </div>
-            
+
     </div>
          <div class="col-md-4">
             <div class="row">
@@ -144,10 +152,10 @@
                     <input type="text"  placeholder="SKYPE" name="txtSkype2"><br>
                 </div>
             </div>
-                
-                
-             </div>            
-        </div> 
+
+
+             </div>
+        </div>
         </div>
         <div class="row">
           <div class="box-footer">
@@ -162,6 +170,6 @@
     </form>
         </div>
     </div>
-    
+
 </body>
 </html>
