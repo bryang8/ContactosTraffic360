@@ -1,0 +1,24 @@
+#banner{
+  background: #455a64;
+  color: #fff;
+  padding: 10px;
+  font-weight: bold;
+  border-color: #455a64;
+  box-shadow: 1px 5px 15px #888888;
+}
+
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {
+	float:none;
+	color: #fff;
+}
+
+.header-title{  
+  font-weight: bold;
+  font-size: 30px;
+}

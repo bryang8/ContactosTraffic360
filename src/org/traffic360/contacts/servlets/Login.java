@@ -34,10 +34,13 @@ public class Login extends HttpServlet{
 				User.setActual(usuario);
 				HttpSession sesion=req.getSession(true);
 				sesion.setAttribute("usuario",usuario);
+				UserLogged.setUserLogged(usuario);
 				if(User.getActual().getRol() == 1){
+					sesion.setAttribute("rol", 1);
 					despachador=req.getRequestDispatcher("/redirect.jsp");
 				}
 				else if(User.getActual().getRol() == 0){
+					sesion.setAttribute("rol", 0);
 					despachador=req.getRequestDispatcher("/redirect.jsp");
 				}
 				

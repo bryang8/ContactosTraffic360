@@ -14,6 +14,21 @@
     cursor: pointer;
 }
 
+#login-btn{
+	padding: 7% 165%;
+	width: auto;
+}
+
+#loginLogo{
+    width: 13em;
+    height: 4em;
+    margin: 3% 21%;
+}
+
+#imgBack{
+	background-color: #d2d6de;
+}
+
 #header{
   background: #1976d2;
   color: #ffffff;
@@ -85,6 +100,14 @@ h2{
     position: relative;
     margin: 20px;
 	color: #fff;
+}
+
+#btns{
+	width:0px;
+}
+
+td{
+	text-align: center;
 }
 
 .icheckbox_square-blue {

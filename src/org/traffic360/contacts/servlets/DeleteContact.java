@@ -17,10 +17,21 @@ public class DeleteContact extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher despachador = null;
+		Integer idContact = null;
+		if(req.getParameter("idContact") != null){
+			 idContact = Integer.parseInt(req.getParameter("idContact"));	
+		}		
 		
-		Integer idContact = Integer.parseInt(req.getParameter("idContact"));
+		if(req.getParameter("final") != null){
+			if(req.getParameter("final").equals("0")){
+				ContactController.getInstance().delete(idContact);
+			}else{
+				ContactController.getInstance().setUp(idContact);
+			}			
+		}else{
+			ContactController.getInstance().setDown(idContact);
+		}	
 		
-		ContactController.getInstance().setDown(idContact);
 		despachador = req.getRequestDispatcher("/redirect.jsp");
 		despachador.forward(req, resp);		
 	}

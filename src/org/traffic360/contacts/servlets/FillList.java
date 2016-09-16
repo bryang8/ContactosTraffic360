@@ -27,7 +27,9 @@ public class FillList extends HttpServlet{
 					for(Department d: list){
 						d.setName(d.getName().toUpperCase());
 					}
-					req.setAttribute("edit-permission", 1);
+					if(UserLogged.getUserLogged() != null){
+						req.setAttribute("userRol", UserLogged.getUserLogged().getRol());	
+					}					
 					req.setAttribute("departmentList",
 							list);
 					req.setAttribute("contactList",

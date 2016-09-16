@@ -21,6 +21,8 @@ public class FillHome extends HttpServlet{
 			if(req.getRemoteAddr().equals(ip)){
 				req.getSession().invalidate();
 				req.getSession().removeAttribute("usuario");
+				req.getSession().removeAttribute("rol");
+				UserLogged.setUserLogged(null);
 				User.setActual(null);
 				RequestDispatcher despachador=null;
 				req.setAttribute("departmentList",

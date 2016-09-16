@@ -30,30 +30,31 @@
     <![endif]-->
   </head>
     <body>
-    
       <div id="banner" align="center">
         <h2>PERSONAL CUSTOM SERVICES</h2>
       </div>
         <br>
         <div class="row" >
         <div class="col-md-12">
-        <div class="container">
-        <form action="add-contact" >
+          <div class="container">
+          <form action="add-contact" >
               <div id="btnAdd">
                 <input class="btn btn-success" type="submit" value="Agregar Contacto">    
               </div>
           </form>
-          <form action="contacts-down" >
+          <form action="list" >
               <div id="btnAdd">
-              	<input class="btn btn-danger" type="submit" value="Contactos eliminados">
+              	<input class="btn btn-primary" type="submit" value="Ver Contactos">
               </div>
           </form>
           </div></div></div>
+        
         <div class="row" >
         <div class="col-md-12">
           <div class="box" id="container">
           
-          <div style="overflow:auto">
+            <div class="box-body" style="overflow:auto">
+              
                   <table id="table" class="table table-striped table-responsive">
                   <c:forEach items="${departmentList}" var="department">
                     <thead>
@@ -67,7 +68,7 @@
 	                        <th id="header"><i class="fa fa-envelope" aria-hidden="true"></i></th>
 	                        <th id="header"><i class="fa fa-skype" aria-hidden="true"></i></th>
 	                        <th id="header">INGRESO</th>
-                            <th id="header" style="min-width:110px;"></th>
+                            <th id="header" style="min-width:150px;"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,7 +77,7 @@
                         <c:if test="${contact.getIdDepartment() == department.getIdDepartment()}">
                            <tr>
                                 <td>${contact.getRol()}</td>
-                                <td>${contact.getName()} & ${contact.getLastName()}</td>                                
+                                <td>${contact.getName()} ${contact.getLastName()}</td>
                                 <td>${contact.getCompany()}</td>
                                 <td>
                                   <c:if test="${contact.getExtension() != 0}">
@@ -117,27 +118,48 @@
                                 </td>
                                 <td>
                                 ${contact.getEnrrollingDate()}</td>
-                                <td>                                
-										<div class="col-md-6 col-xs-6 col-sm-6">
-											<form  id="btns" action = "edit-contact-view?idContact=${contact.getIdContact()}"  method= "post">
-										    	<button type="submit" class="btn btn-warning"><i class="fa fa-edit"></i></button>
-										   	</form>
-										</div>
-										<div class="col-md-6 col-xs-6 col-sm-6">										
-										    <button type="submit" onClick="confirmDelete(${contact.getIdContact()})" class="btn btn-danger pull-left"><i class="fa fa-trash"></i></button>									    
-										</div>								                              		                        																	
+                                <td>                                	
+							   <%										
+									Object rol=sesion.getAttribute("rol");
+									if(rol.equals(0)){										
+										%>	
+											<div class="col-md-4 col-xs-4 col-sm-4">												
+											    <button type="submit" onClick="confirmSetUp(${contact.getIdContact()})" class="btn btn-info"><i class="fa fa-arrow-up"></i></button>											   	
+											</div>
+										<%
+									}else{
+										%>	
+											<div class="col-md-12 col-xs-12 col-sm-12">												
+											    <button type="submit" onClick="confirmSetUp(${contact.getIdContact()})" class="btn btn-info"><i class="fa fa-arrow-up"></i></button>											   	
+											</div>
+										<%
+									}									
+									if(rol.equals(0)){										
+										%>	
+											<div class="col-md-4 col-xs-4 col-sm-4">
+												<form action = "edit-contact-view?idContact=${contact.getIdContact()}"  method= "post">
+											    	<button type="submit" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+											   	</form>
+											</div>
+											<div class="col-md-4 col-xs-4 col-sm-4">
+										    	<button type="submit" onClick="confirmDelete(${contact.getIdContact()})" class="btn btn-danger pull-left"><i class="fa fa-trash"></i></button>
+											</div>
+										<%
+									}
+								%>                                		                        																	
                                 </td>
                             </tr>
-                        </c:if> 
+                        </c:if>                        
                     </c:forEach>
-                    <tr style="height:15px"></tr> 
+                    <tr style="height:15px"></tr>
                 </tbody>
                 </c:forEach>
             </table>
-            </div>
             <br/>
             <br/>
                 
+          
+		</div><!-- /.box-body -->
 	  </div><!-- /.box -->
 	</div>
   </div>
@@ -166,10 +188,20 @@
 		    if (dialog != true) {
 		    	$.get("/contacts-down");
 		    } else {		    	
-		    	$.get('delete-contact-confirm?idContact='+idContacto+'${contact.getIdContact()}');
+		    	$.get('delete-contact-confirm?idContact='+idContacto+'${contact.getIdContact()}&final=0');
 		    	location.reload(true);
 		    }		    
-		}		
+		}
+		
+		function confirmSetUp(idContacto) {		    
+		    var dialog = confirm("Desea Restablecer?");
+		    if (dialog != true) {
+		    	$.get("/contacts-down");
+		    } else {		    	
+		    	$.get('delete-contact-confirm?idContact='+idContacto+'${contact.getIdContact()}&final=1');
+		    	location.reload(true);
+		    }		    
+		}
 	</script>
 </body>
 </html>

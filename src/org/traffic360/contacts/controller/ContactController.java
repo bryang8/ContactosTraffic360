@@ -172,6 +172,12 @@ public class ContactController {
 			.ejecutarConsulta(
 					"UPDATE contact SET status = '0' WHERE idContact = '" + idContact + "';");
 	}
+	
+	public void setUp(Integer idContact){
+		Conexion.getInstancia()
+			.ejecutarConsulta(
+					"UPDATE contact SET status = '1' WHERE idContact = '" + idContact + "';");
+	}
 
 	
 	public Contact search(Integer idContact){

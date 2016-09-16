@@ -25,16 +25,20 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
+  	 <div id="imgBack">
+  	 </div>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
+  <img alt="" src="assets/images/traffic360.png" id="loginLogo">
+  
 	  <%= (request.getParameter("error")!=null)?request.getParameter("error"):""%>
     <p class="login-box-msg">Ingrese sus credenciales</p>
 
     <form action="login" method="post">
       <div class="form-group has-feedback">
         <input name="txtUsername" type="text" class="form-control" placeholder="Username">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input name="txtPassword" type="password" class="form-control" placeholder="Password">
@@ -42,8 +46,8 @@
       </div>
       <div class="row">
         <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+          <button type="submit" id="login-btn"  class="btn btn-primary btn-flat">Login</button>
         </div>
         <!-- /.col -->
         ${error}

@@ -9,12 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.traffic360.contacts.bean.UserLogged;
+
 @WebServlet("/config")
 public class FillLogin extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher despachador=null;
-		despachador = req.getRequestDispatcher("login.jsp");
+		if(UserLogged.getUserLogged() != null){
+			despachador = req.getRequestDispatcher("/list");	
+		}else{
+			despachador = req.getRequestDispatcher("login.jsp");	
+		}		
 		despachador.forward(req, resp);
 	}
 	
