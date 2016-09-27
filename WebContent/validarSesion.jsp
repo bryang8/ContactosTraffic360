@@ -4,6 +4,7 @@
 <%
 	HttpSession sesion=request.getSession();
 	Object user=sesion.getAttribute("usuario");
+	Object nick = sesion.getAttribute("nick");
 	if(user!=null){
 		//response.sendRedirect("default.jsp"); //para evitar el bucle de redireccion
 	}else{

@@ -5,14 +5,13 @@ import org.traffic360.contacts.db.Conexion;
 import org.traffic360.contacts.helpers.Encrypt;
 
 public class UserController {
-	private static UserController instance;
-	
-	public static UserController getInstance(){
-		return (instance==null)?
-				new UserController():instance;
-	}
-	
-	public void createUser(User user){
-		Conexion.getInstancia().ejecutarConsulta("INSERT INTO user VALUES ( null, '"+ user.getUserName() +"','"+Encrypt.Encriptar(user.getPassword())+"','0');");
-	}
+    private static UserController instance;
+
+    public static UserController getInstance() {
+        return instance == null ? new UserController() : instance;
+    }
+
+    public void createUser(User user) {
+        Conexion.getInstancia().ejecutarConsulta("INSERT INTO user VALUES ( null, '" + user.getUserName() + "','" + Encrypt.Encriptar((String)user.getPassword()) + "','0');");
+    }
 }

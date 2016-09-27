@@ -19,9 +19,11 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="assets/css/AdminLTE.min.css">
-    <!-- iCheck -->
+    <!-- iCheck --><link rel="stylesheet" href="assets/css/blue.css">
+    <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/blue.css">
-    <link rel="stylesheet" href="assets/css/loginbox.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -32,10 +34,17 @@
     <![endif]-->
   </head>
 <body>
-  <div id="banner" align="center">
-    <h2>PERSONAL CUSTOM SERVICES</h2>
-  </div>
-	<br>
+  <nav class="navbar navbar-fixed-top" id="banner">
+	    	<div class="container-fluid">
+	    		<div class="navbar-header header-size">
+	    			<span id="navbar-title">PERSONAL CUSTOM SERVICES</span>	    					
+	    		</div>    		
+	    	</div>
+	    </nav>
+        <br>
+        <br>
+        <br>
+        <br>
 	<div class="row">
 	<div class="col-md-12">
 	  <div class="box" id="container">

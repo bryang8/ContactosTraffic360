@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="assets/images/notebook.png">
-    <title>Traffic360 - Contactos</title>
+    <title>Contactos</title>
     <link href='assets/img/icon.png' rel='shortcut icon' type='image/png'>
     <!-- <link rel="stylesheet" href="assets/css/estilo.css" > -->
     <!-- Tell the browser to be responsive to screen width -->
@@ -42,135 +42,95 @@
   <style>
   span{
     color:red;
+    font-weight: bolder;
   }
   </style>
-
-    <div class="row">
-    <div class="box box-info col-md-10">
-      <div class="box-header with-border">
-          <h3 class="box-title">AGREGAR CONTACTO</h3>
-      </div>
-	<form action="add-contact-new" method="post" class="form-horizontal">
-        <div class="row">
-        <div class="col-md-4">
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> EMPRESA:</label>
-                <div class="col-sm-4">
-                    <input type="text" required  placeholder="EMPRESA" name="txtEmpresa"><br>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> DEPARTAMENTO:</label>
-                <div class="col-sm-4">
-                    <select name="txtDepartamento">
+<form action="add-contact-new" method="post" class="form-horizontal">
+    <div class="box box-info container">
+        <div class="row">  
+            <div class="box-header with-border">
+              <h3 class="box-title">AGREGAR CONTACTO</h3>
+            </div>  
+            <br>        
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="inputEmai-l3" class="col-sm-7 control-label"><span>*</span> EMPRESA:</label>
+                        <input id="" type="text" required  placeholder="EMPRESA" name="txtEmpresa"><br>
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> DEPARTAMENTO:</label>
+                        <select name="txtDepartamento">
                         <c:forEach items="${departmentList}" var="departament">
-                                <option value="${departament.getIdDepartment()}">${departament.getName()}</option>
+                            <option value="${departament.getIdDepartment()}">${departament.getName()}</option>
                         </c:forEach>
-                    </select>
+                        </select>
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> ROL:</label>
+                        <input type="text"  required placeholder="ROL" name="txtRol"><br>
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> NOMBRE:</label>
+                        <input type="text"  required placeholder="NOMBRE" name="txtNombre"><br>
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> APELLIDO:</label>
+                        <input type="text" required placeholder="APELLIDO" name="txtApellido"><br>
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label">EXTENSION:</label>
+                        <input type="number" placeholder="EXTENSION" name="txtExtension"><br>
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label">ZOIPER:</label>
+                        <input type="number" placeholder="ZOIPER" name="txtZoiper"><br>
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label">FECHA DE INGRESO:</label>
+                        <input type="date" placeholder="FECHA DE INGRESO" name="txtFechaDeIngreso"><br>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> ROL:</label>
-                <div class="col-sm-4">
-                      <input type="text"  required placeholder="ROL" name="txtRol"><br>
+                <div class="col-md-5">
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label">CORREO 1:</label>                    
+                        <input type="email" placeholder="CORREO" name="txtCorreo1"><br>                    
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label">CORREO 2:</label>                
+                        <input type="email" placeholder="CORREO" name="txtCorreo2"><br>                
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label">TELEFONO 1:</label>                    
+                        <input type="number"  placeholder="TELEFONO" name="txtTelefono1"><br>                    
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label">TELEFONO 2:</label>                    
+                        <input type="number"  placeholder="TELEFONO" name="txtTelefono2"><br>                    
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label">TELEFONO 3:</label>                
+                        <input type="number"  placeholder="TELEFONO" name="txtTelefono3"><br>            
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label">SKYPE 1:</label>                    
+                        <input type="text"  placeholder="SKYPE" name="txtSkype1"><br>                
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-7 control-label">SKYPE 2:</label>                    
+                        <input type="text"  placeholder="SKYPE" name="txtSkype2"><br>                    
+                    </div>
                 </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> NOMBRE:</label>
-                <div class="col-sm-4">
-                      <input type="text"  required placeholder="NOMBRE" name="txtNombre"><br>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label"><span>*</span> APELLIDO:</label>
-                <div class="col-sm-4">
-                    <input type="text" required placeholder="APELLIDO" name="txtApellido"><br>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">EXTENSION:</label>
-                <div class="col-sm-4">
-                    <input type="number" placeholder="EXTENSION" name="txtExtension"><br>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">ZOIPER:</label>
-                <div class="col-sm-4">
-                    <input type="number" placeholder="ZOIPER" name="txtZoiper"><br>
-                </div>
-            </div>
-
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">FECHA DE INGRESO:</label>
-                <div class="col-sm-4">
-                <input type="date" placeholder="FECHA DE INGRESO" name="txtFechaDeIngreso"><br>
-                </div>
-                <span>* Campos obligatorios</span>
-            </div>
-
-    </div>
-         <div class="col-md-4">
-            <div class="row">
-                <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">CORREO 1:</label>
-                <div class="col-sm-4">
-                    <input type="email" placeholder="CORREO" name="txtCorreo1"><br>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">CORREO 2:</label>
-                <div class="col-sm-4">
-                    <input type="email" placeholder="CORREO" name="txtCorreo2"><br>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">TELEFONO 1:</label>
-                <div class="col-sm-4">
-                    <input type="number"  placeholder="TELEFONO" name="txtTelefono1"><br>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">TELEFONO 2:</label>
-                <div class="col-sm-4">
-                    <input type="number"  placeholder="TELEFONO" name="txtTelefono2"><br>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">TELEFONO 3:</label>
-                <div class="col-sm-4">
-                    <input type="number"  placeholder="TELEFONO" name="txtTelefono3"><br>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">SKYPE 1:</label>
-                <div class="col-sm-4">
-                    <input type="text"  placeholder="SKYPE" name="txtSkype1"><br>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="inputEmail3" class="col-sm-7 control-label">SKYPE 2:</label>
-                <div class="col-sm-4">
-                    <input type="text"  placeholder="SKYPE" name="txtSkype2"><br>
-                </div>
-            </div>
-
-
-             </div>
         </div>
-        </div>
-        <div class="row">
-          <div class="box-footer">
-              <div class="col-md-7">
-                  <div class="col-sm-3 pull-right">
-                    <button type="submit" class="btn btn-primary pull-left">AGREGAR</button>
-                  </div>
-                  <a href="/contactosTraffic360/list"><input type="button" class="btn btn-dafault pull-right" value="CANCELAR"/></a>
-              </div>
-          </div>
-        </div>
-    </form>
-        </div>
-    </div>
-
+        	  <%= (request.getParameter("er")!=null)?request.getParameter("er"):""%>
+</div>      
+<div class="box-footer container">
+    <div class="col-md-1 col-md-offset-3">          
+        <button type="submit" class="btn btn-primary pull-left">AGREGAR</button>   
+    </div>     
+    <div class="col-md-1 col-md-offset-1">          
+        <a href="list"><input type="button" class="btn btn-dafault pull-right" value="CANCELAR"/></a>
+    </div>     
+</div>
+</form>            
 </body>
 </html>

@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="assets/css/dataTables.bootstrap.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="assets/css/blue.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,23 +32,41 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+    	dropdown:hover{
+    		color: #ffffff;
+    		background: #ffffff;
+    	}
+    	dropdown-toggle{
+    		padding: 5px;
+    	}
+    </style>
   </head>
-    <body>
-      <div id="banner" align="center">
-        <h2>PERSONAL CUSTOM SERVICES</h2>
-      </div>
+	    <nav class="navbar navbar-fixed-top" id="banner">
+	    	<div class="container-fluid">
+	    		<div class="navbar-header header-size">
+	    			<span id="navbar-title">PERSONAL CUSTOM SERVICES</span>
+	    			<ul class="nav navbar-nav navbar-right" id="nav-right">	        
+				        <li class="dropdown">
+				          <a href="#" class="dropdown-toggle" id="drop-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=nick %><span class="caret"></span></a>
+			          <ul class="dropdown-menu">		          
+			            <li><a href="home">cerrar sesion</a></li>
+			          </ul>
+			        </li>
+			     </ul>		
+	    		</div>    		
+	    	</div>
+	    </nav>
         <br>
-        <div class="row" >
+        <br>
+        <br>
+        <br>   
+         <div class="row" >
         <div class="col-md-12">
-          <div class="container">
-          <form action="add-contact" >
-              <div id="btnAdd">
-                <input class="btn btn-success" type="submit" value="Agregar Contacto">    
-              </div>
-          </form>
+          <div class="container-fluid">
           <form action="list" >
               <div id="btnAdd">
-              	<input class="btn btn-primary" type="submit" value="Ver Contactos">
+              	<input class="btn btn-primary" type="submit" value="Contactos">
               </div>
           </form>
           </div></div></div>
@@ -52,7 +74,7 @@
         <div class="row" >
         <div class="col-md-12">
           <div class="box" id="container">
-          
+          	
             <div class="box-body" style="overflow:auto">
               
                   <table id="table" class="table table-striped table-responsive">
@@ -170,16 +192,8 @@
   	<div class="row">
   		<div class="text-center">
 		  <small>*Modificaciones dudas y/o correcciones contactar IT</small>
-		</div>
-        <a id="logout" href="home">Cerrar Sesion</a>	
-        <%										
-			Object rol=sesion.getAttribute("rol");
-			if(rol.equals(0)){										
-				%>
-					<a id="add-user" href="add-user" style="margin:10px; float:left;">Agregar Administrador</a>
-				<%
-			}
-		%>
+		</div>     	
+        
   	</div>
   	</footer>
   	<script>

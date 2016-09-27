@@ -19,8 +19,11 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="assets/css/AdminLTE.min.css">
     <link rel="stylesheet" href="assets/css/dataTables.bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <!-- iCheck -->
     <link rel="stylesheet" href="assets/css/blue.css">
+    <link rel="stylesheet" href="assets/css/app.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,27 +31,53 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+   </head>
     <body>
     
-      <div id="banner" align="center">
-        <h2>PERSONAL CUSTOM SERVICES</h2>
-      </div>
+    
+	    <nav class="navbar navbar-fixed-top" id="banner">
+	    	<div class="container-fluid">
+	    		<div class="navbar-header header-size">
+	    				<span id="navbar-title">PERSONAL CUSTOM SERVICES</span>
+		    			<ul class="nav navbar-nav navbar-right" id="nav-right">	        
+					        <li class="dropdown">
+					          <a href="#" class="dropdown-toggle"  id="drop-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=nick %><span class="caret"></span></a>
+				          <ul class="dropdown-menu">		          
+				            <li><a href="home">Cerrar Sesión</a></li>
+				          </ul>
+				        </li>
+			     	</ul>
+				</div>    		
+	    	</div>
+	    </nav>
         <br>
-        <div class="row" >
-        <div class="col-md-12">
-        <div class="container">
-        <form action="add-contact" >
-              <div id="btnAdd">
-                <input class="btn btn-success" type="submit" value="Agregar Contacto">    
-              </div>
-          </form>
-          <form action="contacts-down" >
-              <div id="btnAdd">
-              	<input class="btn btn-danger" type="submit" value="Contactos eliminados">
-              </div>
-          </form>
-          </div></div></div>
+        <br>
+        <br>
+        <br>        
+        <div class="container-fluid">
+	          <form action="add-contact" >
+	              <div id="btnAdd">
+	                <input class="btn btn-success" type="submit" value="Agregar">    
+	              </div>
+	          </form>
+	          <form action="contacts-down" >
+	              <div id="btnDeleted">
+	              	<input class="btn btn-danger" type="submit" value="Eliminados">
+	              </div>
+	          </form>
+	          <%										
+					Object rol=sesion.getAttribute("rol");
+					if(rol.equals(0)){										
+			  %>
+							<form action="addUser.jsp" >
+	              <div id="btnAdmins">
+	              	<input class="btn btn-info" type="submit" value="+ Administrador">
+	              </div>
+	          </form>
+				<%
+					}
+	     		%>
+         </div>
         <div class="row" >
         <div class="col-md-12">
           <div class="box" id="container">
@@ -76,7 +105,7 @@
                         <c:if test="${contact.getIdDepartment() == department.getIdDepartment()}">
                            <tr>
                                 <td>${contact.getRol()}</td>
-                                <td>${contact.getName()} & ${contact.getLastName()}</td>                                
+                                <td>${contact.getName()} ${contact.getLastName()}</td>                                
                                 <td>${contact.getCompany()}</td>
                                 <td>
                                   <c:if test="${contact.getExtension() != 0}">
@@ -148,16 +177,7 @@
   	<div class="row">
   		<div class="text-center">
 		  <small>*Modificaciones dudas y/o correcciones contactar IT</small>
-		</div>
-        <a id="logout" href="home">Cerrar Sesion</a>	
-        <%										
-			Object rol=sesion.getAttribute("rol");
-			if(rol.equals(0)){										
-				%>
-					<a id="add-user" href="add-user" style="margin:10px; float:left;">Agregar Administrador</a>
-				<%
-			}
-		%>
+		</div>        
   	</div>
   	</footer>
   	<script>

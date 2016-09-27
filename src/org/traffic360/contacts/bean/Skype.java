@@ -1,45 +1,40 @@
 package org.traffic360.contacts.bean;
 
 public class Skype {
-	private Integer idSkype;
-	private String skype;
-	private Integer idContact;
-	
-	public Skype() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    private Integer idSkype;
+    private String skype;
+    private Integer idContact;
 
-	public Skype(Integer idSkype, String skype, Integer idContact) {
-		super();
-		this.idSkype = idSkype;
-		this.skype = skype;
-		this.idContact = idContact;
-	}
+    public Skype() {
+    }
 
-	public Integer getIdSkype() {
-		return idSkype;
-	}
+    public Skype(Integer idSkype, String skype, Integer idContact) {
+        this.idSkype = idSkype;
+        this.skype = skype;
+        this.idContact = idContact;
+    }
 
-	public void setIdSkype(Integer idSkype) {
-		this.idSkype = idSkype;
-	}
+    public Integer getIdSkype() {
+        return this.idSkype;
+    }
 
-	public String getSkype() {
-		return skype;
-	}
+    public void setIdSkype(Integer idSkype) {
+        this.idSkype = idSkype;
+    }
 
-	public void setSkype(String skype) {
-		this.skype = skype;
-	}
+    public String getSkype() {
+        return this.skype;
+    }
 
-	public Integer getIdContact() {
-		return idContact;
-	}
+    public void setSkype(String skype) {
+        this.skype = skype;
+    }
 
-	public void setIdContact(Integer idContact) {
-		this.idContact = idContact;
-	}
-	
-	
+    public Integer getIdContact() {
+        return this.idContact;
+    }
+
+    public void setIdContact(Integer idContact) {
+        this.idContact = idContact;
+    }
 }

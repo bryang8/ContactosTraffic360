@@ -28,11 +28,12 @@
   	 <div id="imgBack">
   	 </div>
   </div>
-  <!-- /.login-logo -->
+<!-- /.login-logo -->
   <div class="login-box-body">
   <img alt="" src="assets/images/traffic360.png" id="loginLogo">
-  
-	  <%= (request.getParameter("error")!=null)?request.getParameter("error"):""%>
+      
+    <%= (request.getParameter("error")!=null)?request.getParameter("error"):""%>
+	
     <p class="login-box-msg">Ingrese sus credenciales</p>
 
     <form action="login" method="post">
@@ -50,11 +51,12 @@
           <button type="submit" id="login-btn"  class="btn btn-primary btn-flat">Login</button>
         </div>
         <!-- /.col -->
-        ${error}
       </div>
     </form>
+    
     <!-- /.social-auth-links -->
   </div>
+      <a class="login-box-msg" style="color : #E92828; ">${error}<a/>
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->

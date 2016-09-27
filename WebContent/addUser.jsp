@@ -67,7 +67,7 @@
                   <div class="col-sm-3 pull-right">
                     <button type="submit" class="btn btn-primary pull-left">AGREGAR</button>
                   </div>
-                  <a href="/contactosTraffic360/list"><input type="button" class="btn btn-dafault pull-right" value="CANCELAR"/></a>
+                  <a href="list"><input type="button" class="btn btn-dafault pull-right" value="CANCELAR"/></a>
               </div>
           </div>
         </div>
