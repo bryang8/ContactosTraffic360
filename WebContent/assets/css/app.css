@@ -1,15 +1,19 @@
 #banner{
   background: #455a64;
   color: #fff;
-  padding: 10px;
+  padding: 10px 0px 10px 0px;
   font-weight: bold;
   border-color: #455a64;
   box-shadow: 1px 5px 15px #888888;
 }
 
+.container-fluid{
+	padding: 0px;	
+}
+
 .navbar-header {
     float: left;
-    padding: 15px;
+    padding: 0px;
     text-align: center;
     width: 100%;
 }
@@ -17,6 +21,47 @@
 	float:none;
 	color: #fff;
 }
+
+#navbar-title{
+ font-size: 27px;	
+}
+
+@media screen and (max-width: 767px) {
+	    #navbar-title {
+	        font-size: 17px;
+	    }
+	    
+	    .container-fluid>.navbar-header{
+	    	margin-left: 0px;
+	    }
+	    
+	    .nav>li>ul>li>a{
+	  		color : #fff;
+		}
+		
+		#banner{
+			padding-bottom: 0px; 
+			border: 0px;
+		}
+		
+		.nav{
+			margin: 0px;
+		}	
+		
+		#drop-toggle{
+			margin-right: 0px;
+		}
+		
+		#btnAdd>.btn, #btnDeleted>.btn, #btnAdmins>.btn{
+			font-size: 12px;
+		}
+		
+		#table>thead>tr>th, #table>tbody>tr>td{
+			font-size: 10px;
+		}
+}
+
+
 
 .header-title{  
   font-weight: bold;

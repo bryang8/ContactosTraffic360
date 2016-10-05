@@ -1,5 +1,7 @@
 package org.traffic360.contacts.helpers;
 
+import java.util.ArrayList;
+
 public class IPFilter {
-    public static String[] allowedips = new String[]{"0:0:0:0:0:0:0:1", "192.168.0.21", "192.168.0.17", "186.151.166.154", "186.151.188.30", "192.168.0.11"};
+    public static ArrayList<String> allowedips = Reader.readIpFilter();
 }

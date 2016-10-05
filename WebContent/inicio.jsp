@@ -38,7 +38,7 @@
 	    <nav class="navbar navbar-fixed-top" id="banner">
 	    	<div class="container-fluid">
 	    		<div class="navbar-header header-size">
-	    				<span id="navbar-title">PERSONAL CUSTOM SERVICES</span>
+	    				<span id="navbar-title" style="32px">PERSONAL CUSTOM SERVICES</span>
 		    			<ul class="nav navbar-nav navbar-right" id="nav-right">	        
 					        <li class="dropdown">
 					          <a href="#" class="dropdown-toggle"  id="drop-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=nick %><span class="caret"></span></a>

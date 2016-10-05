@@ -19,7 +19,7 @@ import org.traffic360.contacts.controller.EmailController;
 import org.traffic360.contacts.controller.PhoneController;
 import org.traffic360.contacts.controller.SkypeController;
 
-@WebServlet(value={"/add-contact-new"})
+@WebServlet("/add-contact-new")
 public class AddContact
 extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

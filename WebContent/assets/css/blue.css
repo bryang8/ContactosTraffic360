@@ -14,15 +14,25 @@
     cursor: pointer;
 }
 
+.col-md-5>.form-group>input, .col-md-5>.form-group>select{
+	width: 30%;
+}
+
+.col-md-5>.form-group>label{
+	width: 40%;
+}
+
+
+
 #login-btn{
 	padding: 7% 165%;
 	width: auto;
 }
 
 #loginLogo{
-    width: 13em;
-    height: 4em;
-    margin: 3% 21%;
+    width: 60%;
+    height: auto;
+    margin: 5% 20%;
 }
 
 #imgBack{
@@ -33,6 +43,7 @@
   background: #1976d2;
   color: #ffffff;
   text-align: center;
+  vertical-align: middle;
 }
 #department_header{
   background: #0d47a1;
@@ -81,6 +92,30 @@
   font-weight: bold;
   box-shadow: 1px 5px 15px #888888;
 }
+
+#nav-right{
+	margin-right: 0px;
+}
+
+#drop-toggle{
+	padding: 4px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.nav>li>a:hover{
+  		color : #fff;
+   		background:#455a64;
+ }
+ .nav>li>a:focus{
+ 		color : #3c8dbc;
+ 		background :#455a64;
+}
+ .nav>li>a:active{
+ 		color : #fff;
+ 		background:#455a64;
+}
+
 h2{
   margin: 0px;
 }
@@ -98,7 +133,27 @@ h2{
     float: right;
     display: inline-block;
     position: relative;
-    margin: 20px;
+    margin: 0px 5% 20px 0px;
+	color: #fff;
+}
+
+.dropdown-menu{
+	padding: 0px;	
+}
+
+#btnDeleted{
+    float: right;
+    display: inline-block;
+    position: relative;
+    margin: 0px 10px 20px 0px;
+	color: #fff;
+}
+
+#btnAdmins{
+    float: left;
+    display: inline-block;
+    position: relative;
+    margin: 0px 0px 20px 5%;
 	color: #fff;
 }
 

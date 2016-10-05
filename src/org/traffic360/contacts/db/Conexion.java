@@ -2,11 +2,13 @@ package org.traffic360.contacts.db;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import org.traffic360.contacts.helpers.Reader;
 
@@ -19,7 +21,17 @@ public class Conexion {
     private static String NOMBRE_DB;
     private static String USER;
     private static String PASSWORD;
-    
+		
+	public void getData(){
+		ArrayList<String> credentials = Reader.readDB();
+		IP_SERVIDOR = credentials.get(0);
+		PUERTO_SERVIDOR = credentials.get(1);
+		NOMBRE_DB = credentials.get(2);
+		USER = credentials.get(3);
+		PASSWORD = credentials.get(4);
+		for (String s: credentials)
+			System.out.println(s);
+	}
 
     public static synchronized Conexion getInstancia(){
         return instancia == null ? new Conexion() : instancia;
@@ -46,10 +58,10 @@ public class Conexion {
     }
 
     public Conexion() {
-    	
+    	getData();
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            this.conexion = DriverManager.getConnection("jdbc:mysql://151.236.218.69:3306/contactos_traffic?user=it@traffic360&password=Traff1c.c0nt4ct5&autoReconnect=true&useSSL=false");
+            this.conexion = DriverManager.getConnection("jdbc:mysql://"+IP_SERVIDOR+":"+PUERTO_SERVIDOR+"/"+NOMBRE_DB+"?user="+USER+"&password="+PASSWORD+"&autoReconnect=true&useSSL=false");
             this.stm = this.conexion.createStatement();
         }
         catch (IllegalAccessException var1_1) {

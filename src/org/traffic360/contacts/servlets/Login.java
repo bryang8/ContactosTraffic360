@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import org.traffic360.contacts.bean.User;
 import org.traffic360.contacts.controller.ContactController;
 
-@WebServlet(value={"/login"})
+@WebServlet("/login")
 public class Login
 extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

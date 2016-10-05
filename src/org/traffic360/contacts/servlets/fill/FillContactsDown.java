@@ -22,11 +22,11 @@ public class FillContactsDown
 extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher despachador = null;
-        String[] arrstring = IPFilter.allowedips;
-        int n = arrstring.length;
+        ArrayList<String> arrstring = IPFilter.allowedips;
+        int n = arrstring.size();
         int n2 = 0;
         while (n2 < n) {
-            String ip = arrstring[n2];
+            String ip = arrstring.get(n2);
             if (req.getRemoteAddr().equals(ip)) {
                 ArrayList<Department> list = new ArrayList<Department>();
                 List<Department> departmentList = ContactController.getInstance().departmentsList();

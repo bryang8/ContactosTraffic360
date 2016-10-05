@@ -1,6 +1,7 @@
 package org.traffic360.contacts.servlets.fill;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,16 +16,16 @@ import org.traffic360.contacts.bean.User;
 import org.traffic360.contacts.controller.ContactController;
 import org.traffic360.contacts.helpers.IPFilter;
 
-@WebServlet(value={"/list"})
+@WebServlet("/list")
 public class FillList
 extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher despachador = null;
-        String[] arrstring = IPFilter.allowedips;
-        int n = arrstring.length;
+        ArrayList<String> arrstring = IPFilter.allowedips;
+        int n = arrstring.size();
         int n2 = 0;
         while (n2 < n) {
-            String ip = arrstring[n2];
+            String ip = arrstring.get(n2);
             if (req.getRemoteAddr().equals(ip)) {
                 List<Department> list = ContactController.getInstance().departmentsList();
                 for (Department d : list) {
